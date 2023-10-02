@@ -1,0 +1,17 @@
+Q: You'd like to get the signup date of your last member. How can you retrieve this information?
+
+A: /*SELECT joindate AS latest from cd.members 
+ORDER BY joindate DESC
+LIMIT 1*/
+
+WITH CTE AS (
+    SELECT joindate, 
+    RN = ROW_NUMBER() OVER (ORDER BY joindate DESC)
+    FROM cd.members
+)
+SELECT joindate
+FROM CTE
+WHERE RN = 1
+
+
+
