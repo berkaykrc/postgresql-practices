@@ -1,0 +1,7 @@
+Q: We want to alter the price of the second tennis court so that it costs 10% more than the first one. Try to do this without using constant values for the prices, so that we can reuse the statement if we want to.
+
+A: UPDATE cd.facilities f1
+SET membercost = f2.membercost * 1.1,
+    guestcost = f2.guestcost * 1.1
+FROM cd.facilities f2 
+WHERE f2.name = 'Tennis Court 1' AND f1.name = 'Tennis Court 2';

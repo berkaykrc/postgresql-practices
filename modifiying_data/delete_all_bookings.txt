@@ -1,0 +1,6 @@
+Q: As part of a clearout of our database, we want to delete all bookings from the cd.bookings table. How can we accomplish this?
+
+/* I used truncate because it's more time efficient to remove all data by not scanning values one by one. 
+It's just deletes all. 
+*/
+A: TRUNCATE TABLE cd.bookings; 

@@ -1,0 +1,8 @@
+Q: In our previous exercises, we deleted a specific member who had never made a booking. How can we make that more general, to delete all members who have never made a booking?
+
+A: DELETE FROM cd.members -- I used my previous answer here not knowing it would produce the same result and saved me rewriting another query.
+WHERE NOT EXISTS (
+    SELECT memid FROM cd.bookings
+    WHERE cd.bookings.memid = cd.members.memid
+);
+				

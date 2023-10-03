@@ -1,0 +1,5 @@
+Q: We made a mistake when entering the data for the second tennis court. The initial outlay was 10000 rather than 8000: you need to alter the data to fix the error.
+
+A: UPDATE cd.facilities
+SET initialoutlay = 10000
+WHERE initialoutlay = 8000 AND name = 'Tennis Court 2' -- I could find id of tennis court with subquery then update it that way. There is planty ways to achieve this. I just wanted to make more precise with filtering two column.

@@ -1,0 +1,16 @@
+Q: We want to remove member 37, who has never made a booking, from our database. How can we achieve that?
+
+A: DELETE FROM cd.members
+WHERE NOT EXISTS (
+    SELECT memid FROM cd.bookings
+    WHERE cd.bookings.memid = cd.members.memid
+);
+/* I came across another solution that I think is better for me. 
+It's more readable and easier to understand. 
+However, upon deeper reflection, I realized that this solution results in the deletion of all results, not just the members with ID 37. 
+I only chose this solution because I knew that the only member who had never made a booking was the one with ID 37.
+*/
+--DELETE FROM cd.members
+--WHERE memid = (SELECT memid FROM cd.members m 
+			   --LEFT JOIN cd.bookings b USING(memid)
+			   --WHERE b.memid IS NULL)
