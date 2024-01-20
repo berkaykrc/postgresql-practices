@@ -1,0 +1,4 @@
+Q: For our first foray into aggregates, we're going to stick to something simple. We want to know how many facilities exist - simply produce a total count.
+
+A: SELECT count(facid) FROM cd.facilities 
+/*I find count(*) somewhat confusing so I'm on side of counting ids for sake of guarantee that I will get count the number of non-NULL values in a specific column which is id where it shouldn't be NULL*/
